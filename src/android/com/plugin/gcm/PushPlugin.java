@@ -62,7 +62,7 @@ public class PushPlugin extends CordovaPlugin {
 
 				gECB = (String) jo.get("ecb");
 				gSenderID = (String) jo.get("senderID");
-                                Object vibrate jo.get("optVibrate");
+                                Object vibrate = jo.get("optVibrate");
                                 if (vibrate) {
                                 	sVibrate = (Boolean) vibrate;
                                 }
@@ -70,7 +70,7 @@ public class PushPlugin extends CordovaPlugin {
                                 if (sound) {
                                 	sSound = (Boolean) sound;
                                 }
-				Log.v(TAG, "execute: ECB=" + gECB + " senderID=" + gSenderID);
+				Log.v(TAG, "BB register: sound=" + sound + " vibrate=" + vibrate);
 
 				GCMRegistrar.register(getApplicationContext(), gSenderID);
 				result = true;
