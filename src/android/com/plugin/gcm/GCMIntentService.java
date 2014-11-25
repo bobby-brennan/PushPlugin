@@ -107,9 +107,13 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setContentTitle(extras.getString("title"))
 				.setTicker(extras.getString("title"))
 				.setContentIntent(contentIntent)
-				.setAutoCancel(true)
-				.setVibrate(new long[0, 100, 0, 50])
-                                .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+				.setAutoCancel(true);
+		if (PushPlugin.sVibrate) {
+			mBuilder.setVibrate(new long[0, 100, 0, 50])
+		}
+		if (PushPlugin.sSound) {
+			mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
+		}
 
 		String message = extras.getString("message");
 		if (message != null) {
