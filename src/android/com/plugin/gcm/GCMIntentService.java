@@ -18,7 +18,7 @@ import com.google.android.gcm.GCMBaseIntentService;
 
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
-
+        private static final long[] VIBRATE_PATTERN = {0, 100, 0, 50};
 	private static final String TAG = "GCMIntentService";
 	
 	public GCMIntentService() {
@@ -109,7 +109,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setContentIntent(contentIntent)
 				.setAutoCancel(true);
 		if (PushPlugin.sVibrate) {
-			mBuilder.setVibrate(new long[0, 100, 0, 50])
+			mBuilder.setVibrate(VIBRATE_PATTERN);
 		}
 		if (PushPlugin.sSound) {
 			mBuilder.setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
