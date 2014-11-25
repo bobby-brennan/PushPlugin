@@ -26,6 +26,9 @@ public class PushPlugin extends CordovaPlugin {
 	public static final String UNREGISTER = "unregister";
 	public static final String EXIT = "exit";
 
+        public static boolean sVibrate = false;
+        public static boolean sSound = false;
+
 	private static CordovaWebView gWebView;
 	private static String gECB;
 	private static String gSenderID;
@@ -59,7 +62,14 @@ public class PushPlugin extends CordovaPlugin {
 
 				gECB = (String) jo.get("ecb");
 				gSenderID = (String) jo.get("senderID");
-
+                                Object vibrate jo.get("optVibrate");
+                                if (vibrate) {
+                                	sVibrate = (Boolean) vibrate;
+                                }
+                                Object sound = jo.get("optSound");
+                                if (sound) {
+                                	sSound = (Boolean) sound;
+                                }
 				Log.v(TAG, "execute: ECB=" + gECB + " senderID=" + gSenderID);
 
 				GCMRegistrar.register(getApplicationContext(), gSenderID);
