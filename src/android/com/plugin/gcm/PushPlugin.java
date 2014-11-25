@@ -63,11 +63,11 @@ public class PushPlugin extends CordovaPlugin {
 				gECB = (String) jo.get("ecb");
 				gSenderID = (String) jo.get("senderID");
                                 Object vibrate = jo.get("optVibrate");
-                                if (vibrate) {
+                                if (vibrate != null) {
                                 	sVibrate = (Boolean) vibrate;
                                 }
                                 Object sound = jo.get("optSound");
-                                if (sound) {
+                                if (sound != null) {
                                 	sSound = (Boolean) sound;
                                 }
 				Log.v(TAG, "BB register: sound=" + sound + " vibrate=" + vibrate);
