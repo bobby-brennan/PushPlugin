@@ -108,7 +108,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setTicker(extras.getString("title"))
 				.setContentIntent(contentIntent)
 				.setAutoCancel(true)
-				.setVibrate(false)
+				.setVibrate(new long[0])
                                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
 		String message = extras.getString("message");
