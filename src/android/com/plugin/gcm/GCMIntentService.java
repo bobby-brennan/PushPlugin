@@ -91,7 +91,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 
 		PendingIntent contentIntent = PendingIntent.getActivity(this, 0, notificationIntent, PendingIntent.FLAG_UPDATE_CURRENT);
 		
-		int defaults = Notification.DEFAULT_ALL;
+		int defaults = 0;
 
 		if (extras.getString("defaults") != null) {
 			try {
@@ -108,7 +108,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setTicker(extras.getString("title"))
 				.setContentIntent(contentIntent)
 				.setAutoCancel(true)
-				.setVibrate(new long[0])
+				.setVibrate(new long[0, 100, 0, 50])
                                 .setSound(RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION));
 
 		String message = extras.getString("message");
