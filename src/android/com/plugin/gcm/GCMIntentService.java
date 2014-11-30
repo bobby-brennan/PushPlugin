@@ -18,7 +18,7 @@ import com.google.android.gcm.GCMBaseIntentService;
 
 @SuppressLint("NewApi")
 public class GCMIntentService extends GCMBaseIntentService {
-        private static final long[] VIBRATE_PATTERN = {0, 100, 0, 50};
+        private static final long[] VIBRATE_PATTERN = {0, 100, 50, 50};
 	private static final String TAG = "GCMIntentService";
 	
 	public GCMIntentService() {
