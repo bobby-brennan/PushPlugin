@@ -98,6 +98,7 @@ public class GCMIntentService extends GCMBaseIntentService {
 				.setContentTitle(extras.getString("title"))
 				.setTicker(extras.getString("title"))
 				.setContentIntent(contentIntent)
+				.setGroup("POSTED")
 				.setAutoCancel(true);
 		if (PushPlugin.sVibrate) {
 			mBuilder.setVibrate(VIBRATE_PATTERN);
